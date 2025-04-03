@@ -7,6 +7,7 @@ import { FaTrashCan } from "react-icons/fa6";
 import { BiSolidLike } from "react-icons/bi";
 import useFileStore from "@/app/store/FileState";
 import { deleteGif } from "@/app/actions/DeleteGif";
+import { GetCurrentUser } from "@/app/actions/GetCurrentUser";
 import Image from "next/image";
 export default function UploadedGifs() {
   const file = useFileStore((state) => state.files);
@@ -15,11 +16,13 @@ export default function UploadedGifs() {
   const [state, action] = useActionState(DisplayUploaded, null);
   const [delstate, delaction] = useActionState(deleteGif, null);
   const [likeState, likeAction] = useActionState(likeGif, null);
+  const [userState, userAction] = useActionState(GetCurrentUser, null);
 
   //useEffect to refeth uploaded and liked
   useEffect(() => {
     startTransition(() => {
       action();
+      userAction();
     });
   }, [file, delstate, likeState]);
   return (
@@ -66,7 +69,9 @@ export default function UploadedGifs() {
                         />
 
                         <div className="flex items-center gap-2">
-                          {ele.whoLiked.includes(ele.createdBy) ? (
+                          {ele.whoLiked.includes(
+                            userState?.userName as string
+                          ) ? (
                             <BiSolidLike
                               className=" hover:cursor-pointer"
                               size={30}

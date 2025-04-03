@@ -5,6 +5,7 @@ import { DisplayAllUploaded } from "@/app/actions/DisplayAllUploaded";
 import { likeGif } from "@/app/actions/LikeGif";
 import { BiSolidLike } from "react-icons/bi";
 import useFileStore from "@/app/store/FileState";
+import { GetCurrentUser } from "@/app/actions/GetCurrentUser";
 import Image from "next/image";
 export default function Show() {
   const file = useFileStore((state) => state.files);
@@ -12,11 +13,13 @@ export default function Show() {
 
   const [state, action] = useActionState(DisplayAllUploaded, null);
   const [likeState, likeAction] = useActionState(likeGif, null);
+  const [userState, userAction] = useActionState(GetCurrentUser, null);
 
   //useEffect to refeth uploaded and liked
   useEffect(() => {
     startTransition(() => {
       action();
+      userAction();
     });
   }, [file, likeState]);
   return (
@@ -62,7 +65,9 @@ export default function Show() {
                         </div>
 
                         <div className="flex items-center gap-2">
-                          {ele.whoLiked.includes(ele.createdBy) ? (
+                          {ele.whoLiked.includes(
+                            userState?.userName as string
+                          ) ? (
                             <BiSolidLike
                               className=" hover:cursor-pointer"
                               size={20}
