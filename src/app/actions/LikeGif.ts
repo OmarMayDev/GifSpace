@@ -2,7 +2,7 @@
 
 import { PrismaClient } from "@prisma/client";
 import { cookies } from "next/headers";
-export async function likeGif(previousState: any, id: string) {
+export async function likeGif(previousState: unknown, id: string) {
   const primsa = new PrismaClient();
 
   //find the current user cookie Id
@@ -36,7 +36,7 @@ export async function likeGif(previousState: any, id: string) {
     const updatedArray = check?.whoLiked.filter(
       (ele) => ele !== (user as string)
     );
-    const gif = await primsa.gifs.update({
+    await primsa.gifs.update({
       where: {
         id: id,
       },
@@ -51,7 +51,7 @@ export async function likeGif(previousState: any, id: string) {
     });
     return { message: "Gif has been unliked!" };
   } else if (!checkIsEmpty) {
-    const gif = await primsa.gifs.update({
+    await primsa.gifs.update({
       where: {
         id: id,
       },
@@ -67,7 +67,7 @@ export async function likeGif(previousState: any, id: string) {
 
     return { message: "Gif has been liked!" };
   } else {
-    const gif = await primsa.gifs.update({
+    await primsa.gifs.update({
       where: {
         id: id,
       },

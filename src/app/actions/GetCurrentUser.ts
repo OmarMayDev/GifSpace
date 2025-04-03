@@ -1,7 +1,7 @@
 "use server";
 import { PrismaClient } from "@prisma/client";
 import { cookies } from "next/headers";
-export async function GetCurrentUser(prevState: unknown, data: unknown) {
+export async function GetCurrentUser() {
   const prisma = new PrismaClient();
 
   //find the current user cookie Id

@@ -19,7 +19,7 @@ export default function UploadedGifs() {
   //useEffect to refeth uploaded and liked
   useEffect(() => {
     startTransition(() => {
-      action(null);
+      action();
     });
   }, [file, delstate, likeState]);
   return (

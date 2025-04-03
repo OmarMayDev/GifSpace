@@ -1,7 +1,7 @@
 "use server";
 import { PrismaClient } from "@prisma/client";
 import { cookies } from "next/headers";
-export async function DeleteUser(prevState: unknown, data: unknown) {
+export async function DeleteUser() {
   const prisma = new PrismaClient();
 
   //grab cookies to identify user

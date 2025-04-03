@@ -16,7 +16,7 @@ export default function Show() {
   //useEffect to refeth uploaded and liked
   useEffect(() => {
     startTransition(() => {
-      action(null);
+      action();
     });
   }, [file, likeState]);
   return (

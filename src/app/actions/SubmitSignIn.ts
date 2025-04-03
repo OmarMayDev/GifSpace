@@ -3,7 +3,7 @@ import { PrismaClient } from "@prisma/client";
 import { cookies } from "next/headers";
 import bcrypt from "bcryptjs";
 
-export async function SubmitSignIn(previousState: any, formData: FormData) {
+export async function SubmitSignIn(previousState: unknown, formData: FormData) {
   const userName = formData.get("userName") as string;
   const password = formData.get("password") as string;
   const regex = /^[A-Za-z][A-Za-z0-9]+$/;

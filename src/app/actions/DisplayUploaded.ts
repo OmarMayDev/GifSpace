@@ -1,7 +1,7 @@
 "use server";
 import { PrismaClient } from "@prisma/client";
 import { cookies } from "next/headers";
-export async function DisplayUploaded(prevState: unknown, data: unknown) {
+export async function DisplayUploaded() {
   const prisma = new PrismaClient();
   //find the current user cookie Id
   const cookieStore = await cookies();

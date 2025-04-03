@@ -19,7 +19,7 @@ export default function AccountOptions() {
 
     if (user) {
       startTransition(() => {
-        showUserAction(null);
+        showUserAction();
       });
     } else {
       startTransition(() => {
@@ -56,7 +56,7 @@ export default function AccountOptions() {
                   onClick={() => {
                     startTransition(() => {
                       localStorage.clear();
-                      deleteAction(null);
+                      deleteAction();
                       updateloggedIn(false);
                       router.push("/");
                     });
@@ -68,7 +68,7 @@ export default function AccountOptions() {
                   className=" text-black hover:cursor-pointer p-3 rounded-lg hover:text-red-600 transition-colors duration-300 disabled:opacity-50"
                   onClick={() => {
                     startTransition(() => {
-                      SignOutAction(null);
+                      SignOutAction();
                       localStorage.clear();
                       window.location.reload();
                     });

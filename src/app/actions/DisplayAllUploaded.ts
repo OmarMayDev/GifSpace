@@ -1,7 +1,7 @@
 "use server";
 import { PrismaClient } from "@prisma/client";
 
-export async function DisplayAllUploaded(prevState: unknown, data: unknown) {
+export async function DisplayAllUploaded() {
   const prisma = new PrismaClient();
 
   //find the uploaded gifs
