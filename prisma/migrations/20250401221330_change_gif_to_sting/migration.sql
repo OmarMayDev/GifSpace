@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "Gifs" ALTER COLUMN "gif" SET DATA TYPE TEXT;

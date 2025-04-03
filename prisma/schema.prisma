@@ -1,0 +1,43 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+
+
+datasource db {
+  url      = env("DATABASE_URL")
+  provider = "postgresql"  
+}
+
+generator client {
+  provider = "prisma-client-js"
+  
+}
+
+
+
+model Gifs{
+  id   String   @id @default(uuid())
+  gif String @unique
+ likes Int @default(0) 
+ whoLiked String[]
+  createdBy String  
+}
+
+
+
+
+
+
+model formUser {
+  id   String      @id @default(uuid())
+  createdAt DateTime @default(now())
+  userName  String? @unique
+  password String? 
+  likedGifs String[]
+}
+
+
+
