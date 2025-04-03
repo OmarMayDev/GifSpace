@@ -23,7 +23,7 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: "GifSpace",
   description:
-    "GifSpace is the go-to platform for developers to upload, share, and discover programming-related GIFs. Whether you're looking for funny coding memes, educational animations, or creative programming visuals, GifSpace has a wide collection of GIFs to suit every developer's needs. With a simple sign-up and sign-in process, users can easily upload their own GIFs, explore community-generated content, and engage with other developers. Featuring a clean design, a user-friendly upload page, and a Community GIFs section, GifSpace brings a unique twist to the developer community by making programming fun and interactive. Perfect for anyone looking to add some humor or visual clarity to their coding journey. Join the GifSpace community today and explore the best programming GIFs on the internet.",
+    "GifSpace is the go-to platform for people to upload, share, and discover GIFs. Whether you're looking for funny memes, educational animations, or creative visuals, GifSpace has a wide collection of GIFs to suit everyone. With a simple sign-up and sign-in process, users can easily upload their own GIFs.",
 };
 
 export default function RootLayout({
