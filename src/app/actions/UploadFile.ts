@@ -3,7 +3,7 @@ import { PrismaClient } from "@prisma/client";
 import { createClient } from "@supabase/supabase-js";
 import { cookies } from "next/headers";
 
-export async function uploadFile(previousState: any, file: File) {
+export async function uploadFile(previousState: unknown, file: File) {
   const prisma = new PrismaClient();
   const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL as string,
@@ -47,6 +47,6 @@ export async function uploadFile(previousState: any, file: File) {
       createdBy: name as string,
     },
   });
-  console.log(sentFile);
+
   return sentFile;
 }

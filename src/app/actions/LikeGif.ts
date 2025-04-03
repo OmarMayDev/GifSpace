@@ -1,5 +1,5 @@
 "use server";
-import { createClient } from "@supabase/supabase-js";
+
 import { PrismaClient } from "@prisma/client";
 import { cookies } from "next/headers";
 export async function likeGif(previousState: any, id: string) {

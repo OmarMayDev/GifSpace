@@ -3,7 +3,7 @@ import { PrismaClient } from "@prisma/client";
 import { cookies } from "next/headers";
 import { revalidatePath } from "next/cache";
 import bcrypt from "bcryptjs";
-export async function SubmitSignUp(previousState: any, formData: FormData) {
+export async function SubmitSignUp(previousState: unknown, formData: FormData) {
   const userName = formData.get("userName") as string;
   let password = formData.get("password") as string;
   const confirmPassword = formData.get("confirmPassword") as string;

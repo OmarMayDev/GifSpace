@@ -70,7 +70,7 @@ export default function FormBox() {
               </button>
               {state?.error && <p className="text-red-600">{state.error}</p>}
               <div className="flex gap-1 flex-col md:flex-row">
-                <div>Don't have an account?</div>
+                <div>Don&apos;t have an account?</div>
                 <Link
                   href="/SignUp"
                   className="text-[#95b8f1] font-bold hover:cursor-pointer "

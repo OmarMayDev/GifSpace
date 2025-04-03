@@ -12,7 +12,7 @@ export async function DeleteUser(prevState: unknown, data: unknown) {
   cookieStore.delete("userId");
 
   //handle delete
-  const deleteUser = await prisma.formUser.delete({
+  await prisma.formUser.delete({
     where: {
       id: user,
     },

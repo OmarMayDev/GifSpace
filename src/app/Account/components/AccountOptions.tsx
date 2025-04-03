@@ -10,18 +10,9 @@ export default function AccountOptions() {
   const router = useRouter();
   const updateloggedIn = useLoggedStore((state) => state.updateloggedIn);
   const [isPending, startTransition] = useTransition();
-  const [showState, showUserAction, isShowPending] = useActionState(
-    GetCurrentUser,
-    null
-  );
-  const [deleteState, deleteAction, isDelPending] = useActionState(
-    DeleteUser,
-    null
-  );
-  const [signOutState, SignOutAction, isSignPending] = useActionState(
-    SignOutUser,
-    null
-  );
+  const [showState, showUserAction] = useActionState(GetCurrentUser, null);
+  const [, deleteAction, isDelPending] = useActionState(DeleteUser, null);
+  const [, SignOutAction, isSignPending] = useActionState(SignOutUser, null);
 
   useEffect(() => {
     const user = localStorage.getItem("isUserLoggedIn");

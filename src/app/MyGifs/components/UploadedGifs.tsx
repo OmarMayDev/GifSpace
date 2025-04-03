@@ -12,9 +12,9 @@ export default function UploadedGifs() {
   const file = useFileStore((state) => state.files);
   const [isTPending, startTransition] = useTransition();
 
-  const [state, action, isPending] = useActionState(DisplayUploaded, null);
-  const [delstate, delaction, delisPending] = useActionState(deleteGif, null);
-  const [likeState, likeAction, likeIsPending] = useActionState(likeGif, null);
+  const [state, action] = useActionState(DisplayUploaded, null);
+  const [delstate, delaction] = useActionState(deleteGif, null);
+  const [likeState, likeAction] = useActionState(likeGif, null);
 
   //useEffect to refeth uploaded and liked
   useEffect(() => {

@@ -2,7 +2,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import useLoggedStore from "../store/LogState";
-import { useState } from "react";
 import {
   FaXTwitter,
   FaInstagram,

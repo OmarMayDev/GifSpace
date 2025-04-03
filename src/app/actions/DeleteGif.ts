@@ -6,7 +6,7 @@ interface SentData {
   filePathing: string;
   fileId: string;
 }
-export async function deleteGif(previousState: any, sentData: SentData) {
+export async function deleteGif(previousState: unknown, sentData: SentData) {
   const primsa = new PrismaClient();
   const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL as string,
@@ -15,19 +15,13 @@ export async function deleteGif(previousState: any, sentData: SentData) {
 
   const filePath = sentData.filePathing.split("gifs/")[1];
 
-  const { data, error } = await supabase.storage
-    .from("gifs")
-    .remove([filePath]);
+  await supabase.storage.from("gifs").remove([filePath]);
 
-  const delPris = await primsa.gifs.delete({
+  await primsa.gifs.delete({
     where: {
       id: sentData?.fileId,
     },
   });
-
-  if (error) {
-    console.log(error);
-  }
 
   return { message: "Gif has been deleted!" };
 }

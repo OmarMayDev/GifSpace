@@ -6,12 +6,12 @@ import { likeGif } from "@/app/actions/LikeGif";
 import { BiSolidLike } from "react-icons/bi";
 import useFileStore from "@/app/store/FileState";
 import Image from "next/image";
-export default function show() {
+export default function Show() {
   const file = useFileStore((state) => state.files);
   const [isTPending, startTransition] = useTransition();
 
-  const [state, action, isPending] = useActionState(DisplayAllUploaded, null);
-  const [likeState, likeAction, likeIsPending] = useActionState(likeGif, null);
+  const [state, action] = useActionState(DisplayAllUploaded, null);
+  const [likeState, likeAction] = useActionState(likeGif, null);
 
   //useEffect to refeth uploaded and liked
   useEffect(() => {

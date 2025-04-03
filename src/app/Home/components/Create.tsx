@@ -1,7 +1,6 @@
 "use client";
 import { FaRocket } from "react-icons/fa6";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
 import useLoggedStore from "@/app/store/LogState";
 export default function Create() {
   const router = useRouter();

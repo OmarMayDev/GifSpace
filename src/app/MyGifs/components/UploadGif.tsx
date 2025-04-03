@@ -8,10 +8,10 @@ export default function UploadGif() {
   const [isUploaded, setIsUploaded] = useState<boolean>(false);
   const [imagePreview, setImagePreview] = useState<string | null>(null);
   // const [file, setFile] = useState<File | null>(null);
-  const [state, action, isPending] = useActionState(uploadFile, null);
+  const [, action, isPending] = useActionState(uploadFile, null);
   const updateFile = useFileStore((state) => state.updateFile);
   const files = useFileStore((state) => state.files);
-  const [isTransitionPending, startTransition] = useTransition();
+  const [, startTransition] = useTransition();
 
   //store uploaded file in temp state
   const fileChangeHandler = async (e: React.ChangeEvent<HTMLInputElement>) => {
