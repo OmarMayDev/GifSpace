@@ -68,9 +68,10 @@ export default function AccountOptions() {
                   className=" text-black hover:cursor-pointer p-3 rounded-lg hover:text-red-600 transition-colors duration-300 disabled:opacity-50"
                   onClick={() => {
                     startTransition(() => {
-                      SignOutAction();
                       localStorage.clear();
-                      window.location.reload();
+                      SignOutAction();
+                      updateloggedIn(false);
+                      router.push("/");
                     });
                   }}
                 >
