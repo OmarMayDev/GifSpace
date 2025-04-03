@@ -7,7 +7,7 @@ import useLoggedStore from "@/app/store/LogState";
 import { useRouter } from "next/navigation";
 export default function FormBox() {
   //handle password check and formData send to formActions.ts
-  const [state, action, isLoading] = useActionState(SubmitSignIn, undefined);
+  const [state, action, isLoading] = useActionState(SubmitSignIn, null);
   const router = useRouter();
   const updateloggedIn = useLoggedStore((state) => state.updateloggedIn);
   //handle form success
