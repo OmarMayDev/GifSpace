@@ -17,7 +17,6 @@ export async function SubmitSignUp(previousState: unknown, formData: FormData) {
   //hash and salt password
   const salt = await bcrypt.genSalt(10);
   const hash = await bcrypt.hash(password, salt);
-
   password = hash as string;
 
   //check database for the user
