@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import { CiTrophy } from "react-icons/ci";
 import {
@@ -9,7 +10,10 @@ import {
   FaDiscord,
   FaRocket,
 } from "react-icons/fa6";
+import { useRouter } from "next/navigation";
+
 export default function HeroSection() {
+  const router = useRouter();
   return (
     <section className="flex flex-col p-5 gap-7 max-w-[1200px] m-auto lg:grid lg:grid-cols-4 grid-rows-4 lg:max-h-[1000px] mb-[250px]">
       {/* one */}
@@ -104,7 +108,12 @@ export default function HeroSection() {
             Want to upload your gif?
           </div>
           <div>
-            <button className="flex bg-white relative z-10 items-center border-2 border-black rounded-2xl gap-2 p-3 hover:cursor-pointer ">
+            <button
+              onClick={() => {
+                router.push("/MyGifs");
+              }}
+              className="flex bg-white relative z-10 items-center border-2 border-black rounded-2xl gap-2 p-3 hover:cursor-pointer "
+            >
               <FaRocket />
               <div className="font-pops">Click me!</div>
             </button>
