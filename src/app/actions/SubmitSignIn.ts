@@ -17,7 +17,7 @@ export async function SubmitSignIn(previousState: unknown, formData: FormData) {
   });
   const hash = findUser?.password as string;
   //compare hash
-  await bcrypt.compare(password, hash);
+  bcrypt.compare(password, hash);
 
   if (!findUser) {
     return { error: "No user with that username" };
