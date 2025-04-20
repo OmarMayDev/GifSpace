@@ -17,7 +17,7 @@ export async function SubmitSignIn(previousState: unknown, formData: FormData) {
   });
   const hash = findUser?.password as string;
   //compare hash
-  bcrypt.compare(password, hash);
+  const compare = await bcrypt.compare(password, hash);
 
   if (!findUser) {
     return { error: "No user with that username" };
@@ -26,8 +26,8 @@ export async function SubmitSignIn(previousState: unknown, formData: FormData) {
   if (userName === userName.replace(regex, "")) {
     return { error: "Usernames only have letters only" };
   }
-
-  if (!hash) {
+  console.log(compare, "whats");
+  if (!compare) {
     return { error: "Password is wrong" };
   }
 
